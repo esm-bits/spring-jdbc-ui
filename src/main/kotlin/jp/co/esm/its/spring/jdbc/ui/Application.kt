@@ -1,11 +1,11 @@
-package jp.co.esm.its.springjdbcui
+package jp.co.esm.its.spring.jdbc.ui
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class SpringJdbcUiApplication
+class Application
 
 fun main(args: Array<String>) {
-    runApplication<SpringJdbcUiApplication>(*args)
+    runApplication<Application>(*args)
 }
