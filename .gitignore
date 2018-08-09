@@ -8,6 +8,7 @@ build
 target
 .idea
 *.iml
+out
 
 node_modules
 bundle.js
