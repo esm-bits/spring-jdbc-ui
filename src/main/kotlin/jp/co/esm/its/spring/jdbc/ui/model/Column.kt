@@ -12,7 +12,7 @@ class Column {
 
     @Throws(SQLException::class)
     fun getColumns(metaData: ResultSetMetaData): List<Column> {
-      val columns = ArrayList()
+      val columns = ArrayList<Column>()
       for (i in 1..metaData.getColumnCount()) {
         val column = Column()
         column.label = metaData.getColumnLabel(i)
