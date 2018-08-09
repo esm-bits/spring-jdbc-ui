@@ -1,4 +1,4 @@
-package jp.co.esm.its.springjdbcui
+package jp.co.esm.its.spring.jdbc.ui
 
 import org.junit.Test
 import org.junit.runner.RunWith
