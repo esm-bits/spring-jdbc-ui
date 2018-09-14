@@ -15,4 +15,4 @@ bundle.js
 bundle.css
 
 static
-templates/app.html
+app.html
