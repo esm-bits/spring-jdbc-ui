@@ -13,3 +13,5 @@ out
 node_modules
 bundle.js
 bundle.css
+
+static
