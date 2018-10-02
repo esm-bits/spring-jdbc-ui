@@ -1,17 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-navigation-drawer v-model="drawer" fixed app>
+    </v-navigation-drawer>
+    <v-toolbar color="indigo" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Sprint JDBC UI</v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center column fill-height>
+          <query-edit></query-edit>
+          <query-parameters-edit></query-parameters-edit>
+          <query-result></query-result>
+        </v-layout>
+      </v-container>
+    </v-content>
+    <v-footer color="indigo" app>
+      SPRING JDBC UI
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import QueryEditComponent from '@/components/QueryEdit'
+import QueryParametersEditComponent from '@/components/QueryParametersEdit'
+import QueryResultComponent from '@/components/QueryResult'
 
 export default {
-  name: 'app',
   components: {
-    HelloWorld
+    queryEdit: QueryEditComponent,
+    queryParametersEdit: QueryParametersEditComponent,
+    queryResult: QueryResultComponent
+  },
+  data () {
+    return {
+      drawer: null
+    }
   }
 }
 </script>
