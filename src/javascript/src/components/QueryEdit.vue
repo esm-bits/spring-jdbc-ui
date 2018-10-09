@@ -1,10 +1,16 @@
 <template>
-  <div>EditQueryComponent</div>
+  <div>{{ currentQuery.rawQuery }}</div>
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  computed: {
+    ...mapGetters('queryStore', {
+      currentQuery: 'getCurrentQuery'
+    })
+  }
 }
 </script>
 

@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" fixed app>
+      <query-list></query-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -22,12 +23,14 @@
 </template>
 
 <script>
+import QueryListComponent from '@/components/QueryList'
 import QueryEditComponent from '@/components/QueryEdit'
 import QueryParametersEditComponent from '@/components/QueryParametersEdit'
 import QueryResultComponent from '@/components/QueryResult'
 
 export default {
   components: {
+    queryList: QueryListComponent,
     queryEdit: QueryEditComponent,
     queryParametersEdit: QueryParametersEditComponent,
     queryResult: QueryResultComponent
