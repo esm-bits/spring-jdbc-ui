@@ -8,8 +8,8 @@
       <v-toolbar-title>Sprint JDBC UI</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center column fill-height>
+      <v-container fluid>
+        <v-layout justify-space-around align-space-around column fill-height fill-width>
           <query-edit></query-edit>
           <query-parameters-edit></query-parameters-edit>
           <query-result></query-result>
@@ -51,5 +51,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.v-content {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
 }
 </style>

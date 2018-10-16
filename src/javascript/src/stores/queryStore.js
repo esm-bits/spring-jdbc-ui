@@ -39,6 +39,9 @@ export default {
       if (!nextQuery) return
 
       state.currentQuery = nextQuery
+    },
+    updateCurrentQuery (state, { rawQuery }) {
+      state.currentQuery.rawQuery = rawQuery
     }
   },
   getters: {
@@ -52,6 +55,9 @@ export default {
   actions: {
     changeCurrentQuery ({ commit }, { id }) {
       commit('changeCurrentQuery', { id })
+    },
+    updateCurrentQuery ({ commit }, { rawQuery }) {
+      commit('updateCurrentQuery', { rawQuery })
     }
   }
 }
