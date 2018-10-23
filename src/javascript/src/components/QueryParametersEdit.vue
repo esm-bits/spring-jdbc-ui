@@ -2,8 +2,8 @@
   <v-form>
     <v-container>
       <v-layout row wrap>
-        <v-flex xs12 sm6 md3>
-          <v-text-field label="ダミー"></v-text-field>
+        <v-flex xs12 sm6 md3 v-for="(param, index) in currentQueryParameters" :key="index">
+          <v-text-field :label="param.name"></v-text-field>
         </v-flex>
       </v-layout>
     </v-container>
@@ -11,8 +11,17 @@
 </template>
 
 <script>
-export default {
+import { mapGetters } from 'vuex'
 
+export default {
+  computed: {
+    ...mapGetters('queryStore', {
+      'currentQuery': 'getCurrentQuery'
+    }),
+    currentQueryParameters () {
+      return this.currentQuery.parameters
+    }
+  }
 }
 </script>
 

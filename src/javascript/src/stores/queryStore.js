@@ -1,11 +1,3 @@
-
-const queryTemplate = {
-  id: '001',
-  rawQuery: '',
-  parameters: [],
-  description: ''
-}
-
 export default {
   namespaced: true,
   state: {
@@ -20,7 +12,11 @@ export default {
       {
         id: '001',
         rawQuery: 'SELECT * FROM test_table',
-        parameters: [],
+        parameters: [
+          {
+            name: 'tableName'
+          }
+        ],
         description: '簡単なSELECTクエリ',
         lastUpdatedAt: '2018/08/01 15:00:00'
       },

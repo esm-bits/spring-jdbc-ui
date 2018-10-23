@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-list>
-      <template v-for="(item, index) in queries">
+      <template v-for="item in queries">
         <v-list-tile
           :key="item.id"
           @click="onClickListItem($event, item)">
