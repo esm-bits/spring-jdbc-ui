@@ -5,11 +5,12 @@
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
-      <v-toolbar-title>Sprint JDBC UI</v-toolbar-title>
+      <v-toolbar-title>Spring JDBC UI</v-toolbar-title>
     </v-toolbar>
     <v-content>
       <v-container fluid>
         <v-layout justify-space-around align-space-around column fill-height fill-width>
+          <query-meta-edit></query-meta-edit>
           <query-edit></query-edit>
           <query-parameters-edit></query-parameters-edit>
           <query-result></query-result>
@@ -25,6 +26,7 @@
 <script>
 import QueryListComponent from '@/components/QueryList'
 import QueryEditComponent from '@/components/QueryEdit'
+import QueryMetaEditComponent from '@/components/QueryMetaEdit'
 import QueryParametersEditComponent from '@/components/QueryParametersEdit'
 import QueryResultComponent from '@/components/QueryResult'
 
@@ -32,6 +34,7 @@ export default {
   components: {
     queryList: QueryListComponent,
     queryEdit: QueryEditComponent,
+    queryMetaEdit: QueryMetaEditComponent,
     queryParametersEdit: QueryParametersEditComponent,
     queryResult: QueryResultComponent
   },

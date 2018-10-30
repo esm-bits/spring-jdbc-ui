@@ -30,6 +30,9 @@ export default {
     ]
   },
   mutations: {
+    createNewQuery (state) {
+      state.queries.push(JSON.parse(JSON.stringify(state.currentQuery)))
+    },
     changeCurrentQuery (state, { id }) {
       const nextQuery = state.queries.filter(e => e.id === id)[0]
       if (!nextQuery) return
@@ -38,6 +41,9 @@ export default {
     },
     updateCurrentQuery (state, { rawQuery }) {
       state.currentQuery.rawQuery = rawQuery
+    },
+    updateCurrentQueryDescription (state, { description }) {
+      state.currentQuery.description = description
     }
   },
   getters: {
@@ -49,11 +55,17 @@ export default {
     }
   },
   actions: {
+    createNewQuery({ commit }) {
+      commit('createNewQuery')
+    },
     changeCurrentQuery ({ commit }, { id }) {
       commit('changeCurrentQuery', { id })
     },
     updateCurrentQuery ({ commit }, { rawQuery }) {
       commit('updateCurrentQuery', { rawQuery })
+    },
+    updateCurrentQueryDescription({ commit }, { description }) {
+      commit('updateCurrentQueryDescription', { description })
     }
   }
 }
