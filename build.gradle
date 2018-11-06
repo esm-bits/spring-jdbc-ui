@@ -1,7 +1,7 @@
 buildscript {
 	ext {
-		kotlinVersion = '1.2.41'
-		springBootVersion = '2.0.4.RELEASE'
+		kotlinVersion = '1.2.71'
+		springBootVersion = '2.0.6.RELEASE'
 	}
 	repositories {
 		mavenCentral()
@@ -31,17 +31,19 @@ node {
 
 group = 'jp.co.esm.its'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+
 compileKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
+		jvmTarget = JavaVersion.VERSION_1_8
 	}
 }
 compileTestKotlin {
 	kotlinOptions {
 		freeCompilerArgs = ["-Xjsr305=strict"]
-		jvmTarget = "1.8"
+		jvmTarget = JavaVersion.VERSION_1_8
 	}
 }
 
@@ -57,6 +59,7 @@ dependencies {
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
 	compile('com.h2database:h2')
+	testCompile "org.jetbrains.kotlin:kotlin-test-junit:$kotlinVersion"
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
