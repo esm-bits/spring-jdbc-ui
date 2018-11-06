@@ -1,7 +1,20 @@
 <template>
   <v-app>
+    <v-btn
+      @click="onClickCreateNewQueryButton"
+      class="new-query-button"
+      color="pink"
+      dark
+      fixed
+      bottom
+      left
+      fab
+      >
+      <v-icon>+</v-icon>
+    </v-btn>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <query-list></query-list>
+      <query-list>
+      </query-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -24,6 +37,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import QueryListComponent from '@/components/QueryList'
 import QueryEditComponent from '@/components/QueryEdit'
 import QueryMetaEditComponent from '@/components/QueryMetaEdit'
@@ -42,11 +56,19 @@ export default {
     return {
       drawer: null
     }
+  },
+  methods: {
+    ...mapActions('queryStore', [
+      'createNewQuery'
+    ]),
+    onClickCreateNewQueryButton() {
+      this.createNewQuery()
+    }
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -58,5 +80,8 @@ export default {
 .v-content {
   padding-top: 0px !important;
   padding-bottom: 0px !important;
+}
+.new-query-button {
+  bottom: 70px !important;
 }
 </style>

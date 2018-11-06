@@ -5,10 +5,17 @@
         <v-flex xs12 sm6 md6>
           <v-text-field label="Query Description" :value="currentQuery.description" @change="onChangeQueryDescription"></v-text-field>
         </v-flex>
-        <v-flex xs12 sm4 md4>
-        </v-flex>
-        <v-flex xs12 sm2 md2>
-          <v-btn color="info" @click="onClickSaveButton">save</v-btn>
+        <v-flex xs12 sm6 md6>
+          <v-layout row wrap>
+            <v-flex xs12 sm6 md6>
+            </v-flex>
+            <v-flex xs12 sm3 md3>
+              <v-btn class="meta-edit-buttons" color="info" @click="onClickSaveButton">save</v-btn>
+            </v-flex>
+            <v-flex xs12 sm3 md3>
+              <v-btn class="meta-edit-buttons" color="warning" @click="onClickExecuteButton">execute</v-btn>
+            </v-flex>
+          </v-layout>
         </v-flex>
       </v-layout>
     </v-container>
@@ -24,6 +31,8 @@ export default {
       'createNewQuery',
       'updateCurrentQueryDescription'
     ]),
+    onClickExecuteButton() {
+    },
     onClickSaveButton() {
     },
     onChangeQueryDescription(description) {
