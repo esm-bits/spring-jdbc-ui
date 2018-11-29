@@ -1,12 +1,13 @@
-import moment from 'moment'
+import { DateTime } from 'luxon'
 
 function createTemplateQuery() {
+  const now = DateTime.local()
   return {
-    id: moment().milliseconds(),
+    id: now.toMillis(),
     rawQuery: '',
     parameters: [],
     description: '',
-    lastUpdatedAt: moment().format('YYYY/MM/DD hh:mm:ss')
+    lastUpdatedAt: now.toFormat('YYYY/MM/DD hh:mm:ss')
   }
 }
 
