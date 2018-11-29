@@ -67,4 +67,6 @@ task npmRunBuild(type: NpmTask, dependsOn: npmInstall) {
 	args = ['run', 'build']
 }
 
+test.dependsOn npm_test
+
 classes.dependsOn npmRunBuild
