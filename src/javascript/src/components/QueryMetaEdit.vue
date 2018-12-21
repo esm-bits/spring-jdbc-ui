@@ -31,7 +31,11 @@ export default {
       'createNewQuery',
       'updateCurrentQueryDescription'
     ]),
+    ...mapActions('resultStore', [
+      'executeQuery'
+    ]),
     onClickExecuteButton() {
+      this.executeQuery({ query: this.currentQuery })
     },
     onClickSaveButton() {
     },
