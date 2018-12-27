@@ -1,4 +1,5 @@
 import { copyValueObject } from '@/helpers'
+import axios from 'axios'
 
 function emptyResult () {
   return copyValueObject({
@@ -6,6 +7,14 @@ function emptyResult () {
     columns: [],
     data:    []
   })
+}
+
+function createResult(queryId, response) {
+  return {
+    queryId,
+    columns: response.columns ? response.columns.map(column => column.label) : [],
+    data: response.resultSet
+  }
 }
 
 export default {
@@ -31,12 +40,20 @@ export default {
     ]
   },
   mutations: {
+    addQueryResult(state, { queryId, result }) {
+      state.results.unshift(createResult(queryId, result))
+    }
   },
   getters: {
     getResult: (state) => (queryId) => {
-      return state.results.filter(i => i.queryId === queryId)[0] || emptyResult()
+      return state.results.find(i => i.queryId === queryId) || emptyResult()
     }
   },
   actions: {
+    async executeQuery({ commit }, { query }) {
+      const response = await axios.post('/api/query', {sql: query.rawQuery})
+      const result = response.data
+      commit('addQueryResult', { queryId: query.id, result })
+    }
   }
 }

@@ -7,8 +7,12 @@ function createTemplateQuery() {
     rawQuery: '',
     parameters: [],
     description: '',
-    lastUpdatedAt: now.toFormat('YYYY/MM/DD hh:mm:ss')
+    lastUpdatedAt: now.toFormat('DD TT')
   }
+}
+
+function createDefaultDescription(state) {
+  return `Query-${state.queries.length + 1}`;
 }
 
 export default {
@@ -45,6 +49,7 @@ export default {
   mutations: {
     createNewQuery (state, { showNewQuery }) {
       const newQuery = createTemplateQuery()
+      newQuery.description = createDefaultDescription(state);
       state.queries.push(newQuery)
       if (showNewQuery) {
         state.currentQuery = newQuery

@@ -31,7 +31,7 @@ export default {
       return this.currentQueryResult.columns
     },
     resultData () {
-      return this.currentQueryResult.data
+      return this.currentQueryResult.data || []
     },
     resultHeaders () {
       return this.resultColumns.map(columnName => ({
