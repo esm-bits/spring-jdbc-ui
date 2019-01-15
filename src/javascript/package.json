@@ -5,12 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
     "test": "vue-cli-service test:unit",
-    "cypress:version": "cypress version",
-    "cypress:verify": "cypress verify",
+    "lint": "vue-cli-service lint",
     "cypress:open": "cypress open",
-    "cypress:run": "cypress run"
+    "cypress:run": "cypress run",
+    "cypress:verify": "cypress verify",
+    "cypress:version": "cypress version",
+    "test:e2e": "vue-cli-service test:e2e"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.4",
+    "@vue/cli-plugin-e2e-cypress": "^3.3.0",
     "@vue/cli-plugin-eslint": "^3.0.4",
     "@vue/cli-plugin-unit-jest": "^3.0.4",
     "@vue/cli-service": "^3.0.4",
