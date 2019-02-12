@@ -3,7 +3,13 @@
     <v-container>
       <template v-if="currentQueryParameters.length > 0">
         <v-layout row wrap>
-          <v-flex xs12 sm6 md3 v-for="(param, index) in currentQueryParameters" :key="index">
+          <v-flex
+            xs12
+            sm6
+            md3
+            v-for="(param, index) in currentQueryParameters"
+            :key="index"
+          >
             <v-text-field :label="param.name"></v-text-field>
           </v-flex>
         </v-layout>
@@ -20,18 +26,18 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters('queryStore', {
-      'currentQuery': 'getCurrentQuery'
+    ...mapGetters("queryStore", {
+      currentQuery: "getCurrentQuery"
     }),
-    currentQueryParameters () {
-      return this.currentQuery.parameters
+    currentQueryParameters() {
+      return this.currentQuery.parameters;
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>

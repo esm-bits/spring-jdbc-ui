@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <v-data-table :items="resultData" :headers="resultHeaders" hide-actions class="elevation-1">
+    <v-data-table
+      :items="resultData"
+      :headers="resultHeaders"
+      hide-actions
+      class="elevation-1"
+    >
       <template slot="items" slot-scope="props">
         <td v-for="(column, index) in resultColumns" :key="index">
           {{ props.item[column] }}
@@ -11,37 +16,37 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from "vuex";
 
 export default {
   computed: {
-    ...mapGetters('queryStore', {
-      'currentQuery': 'getCurrentQuery'
+    ...mapGetters("queryStore", {
+      currentQuery: "getCurrentQuery"
     }),
-    ...mapGetters('resultStore', {
-      'getResult': 'getResult'
+    ...mapGetters("resultStore", {
+      getResult: "getResult"
     }),
-    currentQueryId () {
-      return this.currentQuery.id
+    currentQueryId() {
+      return this.currentQuery.id;
     },
-    currentQueryResult () {
-      return this.getResult(this.currentQueryId)
+    currentQueryResult() {
+      return this.getResult(this.currentQueryId);
     },
-    resultColumns () {
-      return this.currentQueryResult.columns
+    resultColumns() {
+      return this.currentQueryResult.columns;
     },
-    resultData () {
-      return this.currentQueryResult.data || []
+    resultData() {
+      return this.currentQueryResult.data || [];
     },
-    resultHeaders () {
+    resultHeaders() {
       return this.resultColumns.map(columnName => ({
         text: columnName,
         value: columnName,
         sortable: true
-      }))
+      }));
     }
-  },
-}
+  }
+};
 </script>
 
 <style lang="scss" scoped>
