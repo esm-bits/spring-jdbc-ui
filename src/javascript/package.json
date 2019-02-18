@@ -17,7 +17,7 @@
     "@babel/polyfill": "^7.0.0-rc.1",
     "@fortawesome/fontawesome-free": "^5.2.0",
     "axios": "^0.18.0",
-    "luxon": "^1.8.2",
+    "luxon": "^1.11.3",
     "roboto-fontface": "*",
     "vue": "^2.5.17",
     "vue-codemirror": "^4.0.5",
