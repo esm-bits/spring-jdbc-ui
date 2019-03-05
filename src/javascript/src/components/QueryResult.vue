@@ -15,38 +15,38 @@
   </v-container>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { State, Action, Getter } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  computed: {
-    ...mapGetters("queryStore", {
-      currentQuery: "getCurrentQuery"
-    }),
-    ...mapGetters("resultStore", {
-      getResult: "getResult"
-    }),
-    currentQueryId() {
-      return this.currentQuery.id;
-    },
-    currentQueryResult() {
-      return this.getResult(this.currentQueryId);
-    },
-    resultColumns() {
-      return this.currentQueryResult.columns;
-    },
-    resultData() {
-      return this.currentQueryResult.data || [];
-    },
-    resultHeaders() {
-      return this.resultColumns.map(columnName => ({
-        text: columnName,
-        value: columnName,
-        sortable: true
-      }));
-    }
+export default class QueryResult extends Vue {
+  @Getter("getCurrentQuery", { namespace: "queryStore" })
+  currentQuery: Query | null = null;
+
+  @Getter("getResult", { namespace: "resultStore" })
+  getResult: any;
+
+  get currentQueryId() {
+    return this.currentQuery ? this.currentQuery.id : "";
   }
-};
+  get currentQueryResult() {
+    return this.getResult(this.currentQueryId);
+  }
+  get resultColumns() {
+    return this.currentQueryResult.columns;
+  }
+  get resultData() {
+    return this.currentQueryResult.data || [];
+  }
+  get resultHeaders() {
+    return this.resultColumns.map((columnName: string) => ({
+      text: columnName,
+      value: columnName,
+      sortable: true
+    }));
+  }
+}
 </script>
 
 <style lang="scss" scoped>

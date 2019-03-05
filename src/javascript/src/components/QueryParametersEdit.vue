@@ -25,19 +25,19 @@
   </v-form>
 </template>
 
-<script>
-import { mapGetters } from "vuex";
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { State, Action, Getter } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  computed: {
-    ...mapGetters("queryStore", {
-      currentQuery: "getCurrentQuery"
-    }),
-    currentQueryParameters() {
-      return this.currentQuery.parameters;
-    }
+export default class QueryParametersEdit extends Vue {
+  @Getter("getCurrentQuery", { namespace: "queryStore" })
+  currentQuery: Query | null = null;
+
+  get currentQueryParameters() {
+    return this.currentQuery ? this.currentQuery.parameters : [];
   }
-};
+}
 </script>
 
 <style lang="scss" scoped>

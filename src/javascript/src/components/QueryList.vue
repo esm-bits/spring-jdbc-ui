@@ -15,20 +15,20 @@
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from "vuex";
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { State, Action, Getter } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  methods: {
-    ...mapActions("queryStore", ["changeCurrentQuery"]),
-    onClickListItem(event, item) {
-      this.changeCurrentQuery({ id: item.id });
-    }
-  },
-  computed: {
-    ...mapGetters("queryStore", {
-      queries: "getQueries"
-    })
+export default class QueryEdit extends Vue {
+  @Getter("getQueries", { namespace: "queryStore" })
+  queries: Query[] = [];
+
+  @Action("changeCurrentQuery", { namespace: "queryStore" })
+  changeCurrentQuery: any;
+
+  onClickListItem(event: any, item: any) {
+    this.changeCurrentQuery({ id: item.id });
   }
-};
+}
 </script>

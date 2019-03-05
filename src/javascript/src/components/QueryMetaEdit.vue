@@ -35,30 +35,34 @@
   </v-form>
 </template>
 
-<script>
-import { mapActions, mapGetters } from "vuex";
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { State, Action, Getter } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  methods: {
-    ...mapActions("queryStore", [
-      "createNewQuery",
-      "updateCurrentQueryDescription"
-    ]),
-    ...mapActions("resultStore", ["executeQuery"]),
-    onClickExecuteButton() {
-      this.executeQuery({ query: this.currentQuery });
-    },
-    onClickSaveButton() {},
-    onChangeQueryDescription(description) {
-      this.updateCurrentQueryDescription({ description });
-    }
-  },
-  computed: {
-    ...mapGetters("queryStore", {
-      currentQuery: "getCurrentQuery"
-    })
+export default class QueryMetaEdit extends Vue {
+  @Action("createNewQuery", { namespace: "queryStore" })
+  createNewQuery: any;
+
+  @Action("updateCurrentQueryDescription", { namespace: "queryStore" })
+  updateCurrentQueryDescription: any;
+
+  @Action("executeQuery", { namespace: "resultStore" })
+  executeQuery: any;
+
+  onClickExecuteButton() {
+    this.executeQuery({ query: this.currentQuery });
   }
-};
+
+  onClickSaveButton() {}
+
+  onChangeQueryDescription(description: any) {
+    this.updateCurrentQueryDescription({ description });
+  }
+
+  @Getter("getCurrentQuery", { namespace: "queryStore" })
+  currentQuery: Query | null = null;
+}
 </script>
 
 <style lang="scss" scoped>

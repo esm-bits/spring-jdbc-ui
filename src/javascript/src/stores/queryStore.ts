@@ -1,10 +1,13 @@
-import Vuex, { createNamespacedHelpers } from "vuex";
 import {
-  DefineActions,
-  DefineGetters,
-  DefineMutations
-} from "vuex-type-helper";
+  createNamespacedHelpers,
+  GetterTree,
+  MutationTree,
+  ActionTree,
+  ActionContext,
+  Module
+} from "vuex";
 import { DateTime } from "luxon";
+import { RootState } from "@/stores/rootState";
 
 function createTemplateQuery(): Query {
   const now = DateTime.local();
@@ -83,7 +86,7 @@ export const state: State = {
   ]
 };
 
-export const getters: DefineGetters<Getters, State> = {
+export const getters = <GetterTree<State, any>>{
   getqueries(state: any) {
     return state.queries;
   },
@@ -92,7 +95,7 @@ export const getters: DefineGetters<Getters, State> = {
   }
 };
 
-export const mutations: DefineMutations<Mutations, State> = {
+export const mutations = <MutationTree<State>>{
   createNewQuery(state, { showNewQuery }: any) {
     const newQuery = createTemplateQuery();
     newQuery.description = createDefaultDescription(state);
@@ -115,34 +118,30 @@ export const mutations: DefineMutations<Mutations, State> = {
   }
 };
 
-export const actions: DefineActions<Actions, State, Mutations, Getters> = {
+export const actions = <ActionTree<State, any>>{
   createNewQuery(
-    { commit }: any,
+    { commit }: ActionContext<State, any>,
     options: { showNewQuery?: boolean } = { showNewQuery: true }
   ) {
     console.log(options);
     const { showNewQuery } = options;
     commit("createNewQuery", { showNewQuery });
   },
-  changeCurrentQuery({ commit }: any, { id }: any) {
+  changeCurrentQuery({ commit }: ActionContext<State, any>, { id }: any) {
     commit("changeCurrentQuery", { id });
   },
-  updateCurrentQuery({ commit }: any, { rawQuery }: any) {
+  updateCurrentQuery({ commit }: ActionContext<State, any>, { rawQuery }: any) {
     commit("updateCurrentQuery", { rawQuery });
   },
-  updateCurrentQueryDescription({ commit }: any, { description }: any) {
+  updateCurrentQueryDescription(
+    { commit }: ActionContext<State, any>,
+    { description }: any
+  ) {
     commit("updateCurrentQueryDescription", { description });
   }
 };
 
-export const {
-  mapState,
-  mapGetters,
-  mapMutations,
-  mapActions
-} = createNamespacedHelpers<State, Getters, Mutations, Actions>("queryStore");
-
-export const queryStore = {
+export const queryStore: Module<State, RootState> = {
   namespaced: true,
   state,
   getters,

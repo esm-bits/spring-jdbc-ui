@@ -1,7 +1,7 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
 import QueryList from "@/components/QueryList.vue";
-import QueryStore from "@/stores/queryStore";
+import { queryStore } from "@/stores/queryStore";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
@@ -45,7 +45,7 @@ describe("QueryList.vue", () => {
             queries
           },
           actions,
-          getters: QueryStore.getters
+          getters: queryStore.getters
         }
       }
     });
