@@ -37,18 +37,22 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
 
+const queryStore = namespace("queryStore");
+const resultStore = namespace("resultStore");
+
+@Component
 export default class QueryMetaEdit extends Vue {
-  @Action("createNewQuery", { namespace: "queryStore" })
-  createNewQuery: any;
+  @queryStore.Action("createNewQuery")
+  createNewQuery!: any;
 
-  @Action("updateCurrentQueryDescription", { namespace: "queryStore" })
-  updateCurrentQueryDescription: any;
+  @queryStore.Action("updateCurrentQueryDescription")
+  updateCurrentQueryDescription!: any;
 
-  @Action("executeQuery", { namespace: "resultStore" })
-  executeQuery: any;
+  @resultStore.Action("executeQuery")
+  executeQuery!: any;
 
   onClickExecuteButton() {
     this.executeQuery({ query: this.currentQuery });
@@ -60,8 +64,8 @@ export default class QueryMetaEdit extends Vue {
     this.updateCurrentQueryDescription({ description });
   }
 
-  @Getter("getCurrentQuery", { namespace: "queryStore" })
-  currentQuery: Query | null = null;
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
 }
 </script>
 

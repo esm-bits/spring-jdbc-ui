@@ -12,9 +12,12 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
 
+const queryStore = namespace("queryStore");
+
+@Component
 export default class QueryEdit extends Vue {
   data() {
     return {
@@ -29,11 +32,11 @@ export default class QueryEdit extends Vue {
     };
   }
 
-  @Getter("getCurrentQuery", { namespace: "queryStore" })
-  currentQuery: any;
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
 
-  @Action("updateCurrentQuery", { namespace: "queryStore" })
-  updateCurrentQuery: any;
+  @queryStore.Action("updateCurrentQuery")
+  updateCurrentQuery!: any;
 
   onCmReady() {}
   onCmFocus() {}

@@ -17,15 +17,18 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
 
-export default class QueryEdit extends Vue {
-  @Getter("getQueries", { namespace: "queryStore" })
-  queries: Query[] = [];
+const queryStore = namespace("queryStore");
 
-  @Action("changeCurrentQuery", { namespace: "queryStore" })
-  changeCurrentQuery: any;
+@Component
+export default class QueryEdit extends Vue {
+  @queryStore.Getter("getQueries")
+  queries!: Query[];
+
+  @queryStore.Action("changeCurrentQuery")
+  changeCurrentQuery!: any;
 
   onClickListItem(event: any, item: any) {
     this.changeCurrentQuery({ id: item.id });

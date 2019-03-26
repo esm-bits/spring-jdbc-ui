@@ -43,13 +43,14 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import QueryListComponent from "@/components/QueryList.vue";
 import QueryEditComponent from "@/components/QueryEdit.vue";
 import QueryMetaEditComponent from "@/components/QueryMetaEdit.vue";
 import QueryParametersEditComponent from "@/components/QueryParametersEdit.vue";
 import QueryResultComponent from "@/components/QueryResult.vue";
-import { queryStore } from "@/stores/queryStore";
+
+const queryStore = namespace("queryStore");
 
 @Component({
   components: {
@@ -63,8 +64,8 @@ import { queryStore } from "@/stores/queryStore";
 export default class App extends Vue {
   drawer: any = null;
 
-  @Action("createNewQuery", { namespace: "queryStore" })
-  createNewQuery: any;
+  @queryStore.Action("createNewQuery")
+  createNewQuery!: any;
 
   onClickCreateNewQueryButton() {
     this.createNewQuery();

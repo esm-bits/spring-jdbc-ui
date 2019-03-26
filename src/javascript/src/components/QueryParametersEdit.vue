@@ -27,12 +27,15 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
 
+const queryStore = namespace("queryStore");
+
+@Component
 export default class QueryParametersEdit extends Vue {
-  @Getter("getCurrentQuery", { namespace: "queryStore" })
-  currentQuery: Query | null = null;
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
 
   get currentQueryParameters() {
     return this.currentQuery ? this.currentQuery.parameters : [];

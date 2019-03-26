@@ -17,15 +17,19 @@
 
 <script lang="ts">
 import { Vue, Component } from "vue-property-decorator";
-import { State, Action, Getter } from "vuex-class";
+import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
 
-export default class QueryResult extends Vue {
-  @Getter("getCurrentQuery", { namespace: "queryStore" })
-  currentQuery: Query | null = null;
+const queryStore = namespace("queryStore");
+const resultStore = namespace("resultStore");
 
-  @Getter("getResult", { namespace: "resultStore" })
-  getResult: any;
+@Component
+export default class QueryResult extends Vue {
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
+
+  @resultStore.Getter("getResult")
+  getResult!: any;
 
   get currentQueryId() {
     return this.currentQuery ? this.currentQuery.id : "";

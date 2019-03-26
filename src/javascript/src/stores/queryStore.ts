@@ -38,8 +38,8 @@ export interface State {
 }
 
 export interface Getters {
-  getqueries: Query[];
-  getcurrentquery: Query;
+  getQueries: Query[];
+  getCurrentQuery: Query;
 }
 
 export interface Mutations {
@@ -87,11 +87,11 @@ export const state: State = {
 };
 
 export const getters = <GetterTree<State, any>>{
-  getqueries(state: any) {
+  getQueries(state: any) {
     return state.queries;
   },
-  getcurrentquery(state: any) {
-    return state.currentquery;
+  getCurrentQuery(state: any) {
+    return state.currentQuery;
   }
 };
 
