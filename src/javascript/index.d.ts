@@ -1,4 +1,1 @@
-declare module "vue-codemirror" {
-  const a: any;
-  export = a;
-}
+declare module "vue-codemirror";
