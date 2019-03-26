@@ -1,10 +1,14 @@
 import { shallowMount, mount, createLocalVue } from "@vue/test-utils";
 import Vuex from "vuex";
+import Vuetify from 'vuetify'
 import QueryList from "@/components/QueryList.vue";
 import { queryStore } from "@/stores/queryStore";
 
 const localVue = createLocalVue();
 localVue.use(Vuex);
+localVue.use(Vuetify, {
+  iconfont: 'fa',
+});
 
 describe("QueryList.vue", () => {
   let actions: any;
