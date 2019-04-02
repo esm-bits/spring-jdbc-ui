@@ -1,47 +1,47 @@
 <template>
   <div class="codemirror-wrapper">
-    <codemirror :options="cmOptions"
-                :value="currentQuery.rawQuery"
-                @ready="onCmReady"
-                @focus="onCmFocus"
-                @input="onCmInput"></codemirror>
+    <codemirror
+      :options="cmOptions"
+      :value="currentQuery.rawQuery"
+      @ready="onCmReady"
+      @focus="onCmFocus"
+      @input="onCmInput"
+    ></codemirror>
   </div>
 </template>
 
-<script>
-import { mapActions, mapGetters } from 'vuex'
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  data () {
+const queryStore = namespace("queryStore");
+
+@Component
+export default class QueryEdit extends Vue {
+  data() {
     return {
       cmOptions: {
         // codemirror options
         tabSize: 4,
-        mode: 'text/x-sql',
-        theme: 'base16-light',
+        mode: "text/x-sql",
+        theme: "base16-light",
         lineNumbers: true,
-        line: true,
+        line: true
       }
-    }
-  },
-  computed: {
-    ...mapGetters('queryStore', {
-      currentQuery: 'getCurrentQuery'
-    })
-  },
-  methods: {
-    ...mapActions('queryStore', [
-      'updateCurrentQuery'
-    ]),
-    onCmReady () {
+    };
+  }
 
-    },
-    onCmFocus () {
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
 
-    },
-    onCmInput (newCode) {
-      this.updateCurrentQuery({ rawQuery: newCode })
-    }
+  @queryStore.Action("updateCurrentQuery")
+  updateCurrentQuery!: any;
+
+  onCmReady() {}
+  onCmFocus() {}
+  onCmInput(newCode: string) {
+    this.updateCurrentQuery({ rawQuery: newCode });
   }
 }
 </script>

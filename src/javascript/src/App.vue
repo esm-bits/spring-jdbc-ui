@@ -9,12 +9,11 @@
       bottom
       left
       fab
-      >
+    >
       <v-icon>+</v-icon>
     </v-btn>
     <v-navigation-drawer v-model="drawer" fixed app>
-      <query-list>
-      </query-list>
+      <query-list> </query-list>
     </v-navigation-drawer>
     <v-toolbar color="indigo" dark fixed app>
       <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
@@ -22,7 +21,13 @@
     </v-toolbar>
     <v-content>
       <v-container fluid>
-        <v-layout justify-space-around align-space-around column fill-height fill-width>
+        <v-layout
+          justify-space-around
+          align-space-around
+          column
+          fill-height
+          fill-width
+        >
           <query-meta-edit></query-meta-edit>
           <query-edit></query-edit>
           <query-parameters-edit></query-parameters-edit>
@@ -36,41 +41,41 @@
   </v-app>
 </template>
 
-<script>
-import { mapActions } from 'vuex'
-import QueryListComponent from '@/components/QueryList'
-import QueryEditComponent from '@/components/QueryEdit'
-import QueryMetaEditComponent from '@/components/QueryMetaEdit'
-import QueryParametersEditComponent from '@/components/QueryParametersEdit'
-import QueryResultComponent from '@/components/QueryResult'
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+import QueryListComponent from "@/components/QueryList.vue";
+import QueryEditComponent from "@/components/QueryEdit.vue";
+import QueryMetaEditComponent from "@/components/QueryMetaEdit.vue";
+import QueryParametersEditComponent from "@/components/QueryParametersEdit.vue";
+import QueryResultComponent from "@/components/QueryResult.vue";
 
-export default {
+const queryStore = namespace("queryStore");
+
+@Component({
   components: {
     queryList: QueryListComponent,
     queryEdit: QueryEditComponent,
     queryMetaEdit: QueryMetaEditComponent,
     queryParametersEdit: QueryParametersEditComponent,
     queryResult: QueryResultComponent
-  },
-  data () {
-    return {
-      drawer: null
-    }
-  },
-  methods: {
-    ...mapActions('queryStore', [
-      'createNewQuery'
-    ]),
-    onClickCreateNewQueryButton() {
-      this.createNewQuery()
-    }
+  }
+})
+export default class App extends Vue {
+  drawer: any = null;
+
+  @queryStore.Action("createNewQuery")
+  createNewQuery!: any;
+
+  onClickCreateNewQueryButton() {
+    this.createNewQuery();
   }
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

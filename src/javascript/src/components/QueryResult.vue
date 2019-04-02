@@ -1,6 +1,11 @@
 <template>
   <v-container>
-    <v-data-table :items="resultData" :headers="resultHeaders" hide-actions class="elevation-1">
+    <v-data-table
+      :items="resultData"
+      :headers="resultHeaders"
+      hide-actions
+      class="elevation-1"
+    >
       <template slot="items" slot-scope="props">
         <td v-for="(column, index) in resultColumns" :key="index">
           {{ props.item[column] }}
@@ -10,37 +15,41 @@
   </v-container>
 </template>
 
-<script>
-import { mapGetters } from 'vuex'
+<script lang="ts">
+import { Vue, Component } from "vue-property-decorator";
+import { namespace } from "vuex-class";
+import { Query } from "@/stores/queryStore";
 
-export default {
-  computed: {
-    ...mapGetters('queryStore', {
-      'currentQuery': 'getCurrentQuery'
-    }),
-    ...mapGetters('resultStore', {
-      'getResult': 'getResult'
-    }),
-    currentQueryId () {
-      return this.currentQuery.id
-    },
-    currentQueryResult () {
-      return this.getResult(this.currentQueryId)
-    },
-    resultColumns () {
-      return this.currentQueryResult.columns
-    },
-    resultData () {
-      return this.currentQueryResult.data || []
-    },
-    resultHeaders () {
-      return this.resultColumns.map(columnName => ({
-        text: columnName,
-        value: columnName,
-        sortable: true
-      }))
-    }
-  },
+const queryStore = namespace("queryStore");
+const resultStore = namespace("resultStore");
+
+@Component
+export default class QueryResult extends Vue {
+  @queryStore.Getter("getCurrentQuery")
+  currentQuery!: Query;
+
+  @resultStore.Getter("getResult")
+  getResult!: any;
+
+  get currentQueryId() {
+    return this.currentQuery ? this.currentQuery.id : "";
+  }
+  get currentQueryResult() {
+    return this.getResult(this.currentQueryId);
+  }
+  get resultColumns() {
+    return this.currentQueryResult.columns;
+  }
+  get resultData() {
+    return this.currentQueryResult.data || [];
+  }
+  get resultHeaders() {
+    return this.resultColumns.map((columnName: string) => ({
+      text: columnName,
+      value: columnName,
+      sortable: true
+    }));
+  }
 }
 </script>
 
