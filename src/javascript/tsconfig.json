@@ -16,7 +16,7 @@
       "@/*": ["src/*"]
     },
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"],
-    "plugins": [{ "name": "vue-ts-plugin" }]
+    "plugins": [{ "name": "ts-vue-plugin" }]
   },
   "files": ["./src/shims-tsx.d.ts", "./src/shims-vue.d.ts"],
   "include": [
