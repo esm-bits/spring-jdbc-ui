@@ -45,7 +45,7 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.0.1",
     "ts-jest": "^24.0.2",
-    "typescript": "~3.2.2",
+    "typescript": "~3.4.2",
     "vue-cli-plugin-vuetify": "^0.2.0",
     "vue-template-compiler": "^2.5.17",
     "vue-ts-plugin": "^0.1.0"
