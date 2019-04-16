@@ -1020,13 +1020,13 @@
     babel-loader "^8.0.5"
     webpack ">=4 < 4.29"
 
-"@vue/cli-plugin-e2e-cypress@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-3.5.1.tgz#68876d0c4bc64cda9970f7a67d5cd3e18bb26fac"
-  integrity sha512-93BtO+hwSC/HDn+WP7/i56/IvVszpALRXWh8G1re7+wukRqaQICeH8J4eJJanR3Bfvdp7tSa3wyxJ6drMavYoQ==
+"@vue/cli-plugin-e2e-cypress@^3.6.0":
+  version "3.6.0"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-3.6.0.tgz#6fb0915d061f9880c5269d9d12506d4ff65dcc5f"
+  integrity sha512-9lSdqa7M53CLc+XDVJJqMYM+M2u9JoausRzxCZIPcd+4HvvqKmNuuhTLpQ4iBki12VFFCtaRZZMAP5M0eYWUYQ==
   dependencies:
-    "@vue/cli-shared-utils" "^3.5.1"
-    cypress "^3.1.5"
+    "@vue/cli-shared-utils" "^3.6.0"
+    cypress "^3.2.0"
     eslint-plugin-cypress "^2.2.1"
 
 "@vue/cli-plugin-eslint@^3.0.4":
@@ -3244,7 +3244,7 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress@^3.1.5, cypress@^3.2.0:
+cypress@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.2.0.tgz#c2d5befd5077dab6fb52ad70721e0868ac057001"
   integrity sha512-PN0wz6x634QyNL56/voTzJoeScDfwtecvSfFTHfv5MkHuECVSR4VQcEZTvYtKWln3CMBMUkWbBKPIwwu2+a/kw==
