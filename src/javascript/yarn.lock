@@ -867,10 +867,10 @@
   dependencies:
     "@types/jest-diff" "*"
 
-"@types/luxon@^1.11.0":
-  version "1.11.0"
-  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-1.11.0.tgz#862041d849bafb991937f25f68d2ff0a4ca3f1e2"
-  integrity sha512-4MBC4fp+W+LJ7Abr03qJtJn2yS6sy9B9xgU+fEaWiIHYxRkFgLVl4WEsLK/dKYXe8VdWtLM4fED4HWaJpMnJMg==
+"@types/luxon@^1.12.0":
+  version "1.12.0"
+  resolved "https://registry.yarnpkg.com/@types/luxon/-/luxon-1.12.0.tgz#acf14294d18e6eba427a5e5d7dfce0f5cd2a9400"
+  integrity sha512-+UzPmwHSEEyv7aGlNkVpuFxp/BirXgl8NnPGCtmyx2KXIzAapoW3IqSVk87/Z3PUk8vEL8Pe1HXEMJbNBOQgtg==
 
 "@types/minimatch@*":
   version "3.0.3"
