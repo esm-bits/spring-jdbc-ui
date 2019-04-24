@@ -10500,10 +10500,10 @@ vue@^2.5.17:
   resolved "https://registry.yarnpkg.com/vue/-/vue-2.6.5.tgz#7a7e8723b875b91800e576aac41cb3ed325dddf0"
   integrity sha512-htb449YZnpJ5ts+JjXQHVuvH3R3dcaGBe6/ePAwtsRj4cA1FG/OI0rHDCSMs+L9ZHDzpX7ru//Usb/2R3XfQaQ==
 
-vuetify@^1.5.9:
-  version "1.5.9"
-  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.5.9.tgz#58db8af20cc2a4d226125e430ca5217d8056555b"
-  integrity sha512-Jg8Ocuk6QDiins7lV3uFB6TaEm3ePspcKIyA/XcxR5/Uwd48f4n1uUOlW9H/XBgbvy+4yHW/KWJWG9oI0ZrmzA==
+vuetify@^1.5.13:
+  version "1.5.13"
+  resolved "https://registry.yarnpkg.com/vuetify/-/vuetify-1.5.13.tgz#b2e406ebdc59723c5ecbd2d0595d3d2ae0cac812"
+  integrity sha512-mUOs9znDmMO/A2I117B/ZHyFlwSqkKplhSL8G2EnS+m0rvZv2Uqjo9idOBbdhaJ3A9sJWT6wDUFywEYuuIcu+g==
 
 vuex-class@^0.3.1:
   version "0.3.1"
