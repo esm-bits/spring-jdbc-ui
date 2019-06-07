@@ -1060,18 +1060,19 @@
     cypress "^3.1.5"
     eslint-plugin-cypress "^2.2.1"
 
-"@vue/cli-plugin-eslint@^3.0.4":
-  version "3.4.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.4.0.tgz#e9fceff873661848be7e1341b31dad23302cd0ac"
-  integrity sha512-KbUpN3Zd/V5zCah9nT9cukTHmd9g4IRskyuIeBw5KZqRDoUgCS7I2+OWlcAMneRuqZwgFbTFYmr9N3s6gz4SVg==
+"@vue/cli-plugin-eslint@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-eslint/-/cli-plugin-eslint-3.8.0.tgz#0402dfd3864b0224bceb264df89a4209000bb98c"
+  integrity sha512-18LDJmjH0DDw9T4+RbrSVk4xkF8t8RDRsEPJLPurno1YVJodIkQ6lqVu82faVgtvPyCoqiaicoTq/iwi1avoLQ==
   dependencies:
-    "@vue/cli-shared-utils" "^3.4.0"
+    "@vue/cli-shared-utils" "^3.8.0"
     babel-eslint "^10.0.1"
-    eslint "^4.19.1"
-    eslint-loader "^2.1.1"
-    eslint-plugin-vue "^4.7.1"
-    globby "^9.0.0"
+    eslint-loader "^2.1.2"
+    globby "^9.2.0"
     webpack ">=4 < 4.29"
+  optionalDependencies:
+    eslint "^4.19.1"
+    eslint-plugin-vue "^4.7.1"
 
 "@vue/cli-plugin-typescript@^3.6.0":
   version "3.6.0"
@@ -1162,7 +1163,7 @@
     webpack-merge "^4.2.1"
     yorkie "^2.0.0"
 
-"@vue/cli-shared-utils@^3.4.0", "@vue/cli-shared-utils@^3.5.1", "@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
+"@vue/cli-shared-utils@^3.5.1", "@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.8.0.tgz#e7e728164eb92bd9e205fcd08dae896ee79cba5a"
   integrity sha512-wn1L8pmQnotfftHOYm0VeXs2+cQTySd73uhWXwyO6pT0ehjqlY5c2RTipClmFF3Q+YCYjwlNpsV650F3l1tV8w==
@@ -3913,7 +3914,7 @@ escodegen@^1.9.1:
   optionalDependencies:
     source-map "~0.6.1"
 
-eslint-loader@^2.1.1:
+eslint-loader@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/eslint-loader/-/eslint-loader-2.1.2.tgz#453542a1230d6ffac90e4e7cb9cadba9d851be68"
   integrity sha512-rA9XiXEOilLYPOIInvVH5S/hYfyTPyxag6DZhoQOduM+3TkghAEQ3VcFO8VnX4J4qg/UIBzp72aOf/xvYmpmsg==
@@ -4923,7 +4924,7 @@ globby@^7.1.1:
     pify "^3.0.0"
     slash "^1.0.0"
 
-globby@^9.0.0, globby@^9.2.0:
+globby@^9.2.0:
   version "9.2.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-9.2.0.tgz#fd029a706c703d29bdd170f4b6db3a3f7a7cb63d"
   integrity sha512-ollPHROa5mcxDEkwg6bPt3QbEf4pDQSNtd6JPL1YvOvAo/7/0VAm9TccUeoTmarjPw4pfUthSCqcyfNB1I3ZSg==
