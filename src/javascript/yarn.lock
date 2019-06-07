@@ -992,13 +992,13 @@
     babel-loader "^8.0.5"
     webpack ">=4 < 4.29"
 
-"@vue/cli-plugin-e2e-cypress@^3.5.1":
-  version "3.5.1"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-3.5.1.tgz#68876d0c4bc64cda9970f7a67d5cd3e18bb26fac"
-  integrity sha512-93BtO+hwSC/HDn+WP7/i56/IvVszpALRXWh8G1re7+wukRqaQICeH8J4eJJanR3Bfvdp7tSa3wyxJ6drMavYoQ==
+"@vue/cli-plugin-e2e-cypress@^3.8.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-e2e-cypress/-/cli-plugin-e2e-cypress-3.8.0.tgz#444663511c05a0ad81ca2272c2a9b4d0b1684126"
+  integrity sha512-k9vgkcj4DuAFsmO56+HHJ45iLvAtvop0n/gjNTAUyKmUkDszwO/b7tnB7XIPoAsU5AxFLaL8rn88Vx7kye/tPw==
   dependencies:
-    "@vue/cli-shared-utils" "^3.5.1"
-    cypress "^3.1.5"
+    "@vue/cli-shared-utils" "^3.8.0"
+    cypress "^3.2.0"
     eslint-plugin-cypress "^2.2.1"
 
 "@vue/cli-plugin-eslint@^3.8.0":
@@ -1104,7 +1104,7 @@
     webpack-merge "^4.2.1"
     yorkie "^2.0.0"
 
-"@vue/cli-shared-utils@^3.5.1", "@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
+"@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.8.0.tgz#e7e728164eb92bd9e205fcd08dae896ee79cba5a"
   integrity sha512-wn1L8pmQnotfftHOYm0VeXs2+cQTySd73uhWXwyO6pT0ehjqlY5c2RTipClmFF3Q+YCYjwlNpsV650F3l1tV8w==
@@ -3291,7 +3291,7 @@ cyclist@~0.2.2:
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
   integrity sha1-GzN5LhHpFKL9bW7WRHRkRE5fpkA=
 
-cypress@^3.1.5, cypress@^3.2.0:
+cypress@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cypress/-/cypress-3.2.0.tgz#c2d5befd5077dab6fb52ad70721e0868ac057001"
   integrity sha512-PN0wz6x634QyNL56/voTzJoeScDfwtecvSfFTHfv5MkHuECVSR4VQcEZTvYtKWln3CMBMUkWbBKPIwwu2+a/kw==
