@@ -18,13 +18,14 @@ function emptyResult() {
   });
 }
 
-function createResult(queryId: any, response: any) {
+function createResult(queryId: any, response: any, error: any): QueryResult {
   return {
     queryId,
     columns: response.columns
       ? response.columns.map((column: any) => column.label)
       : [],
-    data: response.resultSet
+    data: response.resultSet,
+    error: error
   };
 }
 
@@ -32,6 +33,9 @@ export interface QueryResult {
   queryId: string;
   columns: string[];
   data: any[];
+  error?: {
+    message: string
+  }
 }
 
 export interface State {
@@ -39,7 +43,7 @@ export interface State {
 }
 
 export interface Getters {
-  getResult: (state: any) => (queryId: any) => any;
+  getResult: (state: any) => (queryId: string) => QueryResult;
 }
 
 export interface Mutations {
@@ -66,8 +70,8 @@ export const state: State = {
 };
 
 export const mutations = <MutationTree<State>>{
-  addQueryResult(state: any, { queryId, result }: any) {
-    state.results.unshift(createResult(queryId, result));
+  addQueryResult(state: any, { queryId, result, error }: any) {
+    state.results.unshift(createResult(queryId, result, error));
   }
 };
 
@@ -81,9 +85,15 @@ export const getters = <GetterTree<State, any>>{
 
 export const actions = <ActionTree<State, any>>{
   async executeQuery({ commit }: any, { query }: any) {
-    const response = await axios.post("/api/query", { sql: query.rawQuery });
-    const result = response.data;
-    commit("addQueryResult", { queryId: query.id, result });
+    let result;
+    let error;
+    try {
+      const response = await axios.post("/api/query", {sql: query.rawQuery});
+      result = response.data;
+    } catch (e) {
+      error = e;
+    }
+    commit("addQueryResult", { queryId: query.id, result: result || [], error });
   }
 };
 

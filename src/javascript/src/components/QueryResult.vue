@@ -1,5 +1,11 @@
 <template>
   <v-container>
+    <v-alert
+      :value="errorMessage"
+      type="error"
+    >
+      {{ errorMessage }}
+    </v-alert>
     <v-data-table
       :items="resultData"
       :headers="resultHeaders"
@@ -19,17 +25,18 @@
 import { Vue, Component } from "vue-property-decorator";
 import { namespace } from "vuex-class";
 import { Query } from "@/stores/queryStore";
+import { QueryResult} from "@/stores/resultStore";
 
 const queryStore = namespace("queryStore");
 const resultStore = namespace("resultStore");
 
 @Component
-export default class QueryResult extends Vue {
+export default class QueryResultComponent extends Vue {
   @queryStore.Getter("getCurrentQuery")
   currentQuery!: Query;
 
   @resultStore.Getter("getResult")
-  getResult!: any;
+  getResult!: (queryId: string) => QueryResult;
 
   get currentQueryId() {
     return this.currentQuery ? this.currentQuery.id : "";
@@ -49,6 +56,9 @@ export default class QueryResult extends Vue {
       value: columnName,
       sortable: true
     }));
+  }
+  get errorMessage() {
+    return this.currentQueryResult.error ? this.currentQueryResult.error.message : "";
   }
 }
 </script>
