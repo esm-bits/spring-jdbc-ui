@@ -27,6 +27,7 @@ apply plugin: "com.moowork.node"
 ext['kotlin.version'] = ext.kotlinVersion
 
 node {
+	download = true
 	workDir = file("${project.projectDir}/src/javascript")
 	nodeModulesDir = file("${project.projectDir}/src/javascript")
 }
