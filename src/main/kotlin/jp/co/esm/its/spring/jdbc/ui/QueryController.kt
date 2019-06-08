@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*
  * @author fossamagna
  */
 @RestController
-@RequestMapping("\${jp.co.esm.its.spring.jdbc.ui.query.path:/api/query}")
+@RequestMapping("\${jp.co.esm.its.spring.jdbc.ui.path:/jdbc-ui}/api/query")
 class QueryController(service: QueryService) {
 
     private val service: QueryService = service

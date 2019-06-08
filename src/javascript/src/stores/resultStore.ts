@@ -88,7 +88,7 @@ export const actions = <ActionTree<State, any>>{
     let result;
     let error;
     try {
-      const response = await axios.post("/api/query", {sql: query.rawQuery});
+      const response = await axios.post("api/query", {sql: query.rawQuery});
       result = response.data;
     } catch (e) {
       error = e;

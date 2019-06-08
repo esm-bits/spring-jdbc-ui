@@ -14,4 +14,4 @@ node_modules
 bundle.js
 bundle.css
 
-static
+src/main/resources/META-INF/ui/
