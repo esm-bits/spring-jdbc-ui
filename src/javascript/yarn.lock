@@ -1015,18 +1015,19 @@
     eslint "^4.19.1"
     eslint-plugin-vue "^4.7.1"
 
-"@vue/cli-plugin-typescript@^3.6.0":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-typescript/-/cli-plugin-typescript-3.6.0.tgz#1a5f030fee44fc4f0b39a3ebdc1a113b482ea5ea"
-  integrity sha512-zgu1VwmhIMi9dRQFAw/LeoWriCVrylKAzQ72zUU/u7iJCRYjLnPOY+eTLiuMCEnUUKmNk5+yJEuwZ54MfUUDqA==
+"@vue/cli-plugin-typescript@^3.10.0":
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/@vue/cli-plugin-typescript/-/cli-plugin-typescript-3.10.0.tgz#a69f96caba83106c35eedb8cde54840826fab6ef"
+  integrity sha512-zA5UVw6eU3xVNEoFYa0WmxQvRLcir80daKrVwG7gBcH50T4uHA7i7ZLdsLLehFq8foV3N/tbDLXDY+XwVjEWog==
   dependencies:
     "@types/webpack-env" "^1.13.9"
-    "@vue/cli-shared-utils" "^3.6.0"
+    "@vue/cli-shared-utils" "^3.10.0"
     fork-ts-checker-webpack-plugin "^0.5.2"
     globby "^9.2.0"
     ts-loader "^5.3.3"
     tslint "^5.15.0"
     webpack ">=4 < 4.29"
+    yorkie "^2.0.0"
 
 "@vue/cli-plugin-unit-jest@^3.8.0":
   version "3.8.0"
@@ -1104,10 +1105,10 @@
     webpack-merge "^4.2.1"
     yorkie "^2.0.0"
 
-"@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
-  version "3.8.0"
-  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.8.0.tgz#e7e728164eb92bd9e205fcd08dae896ee79cba5a"
-  integrity sha512-wn1L8pmQnotfftHOYm0VeXs2+cQTySd73uhWXwyO6pT0ehjqlY5c2RTipClmFF3Q+YCYjwlNpsV650F3l1tV8w==
+"@vue/cli-shared-utils@^3.10.0", "@vue/cli-shared-utils@^3.6.0", "@vue/cli-shared-utils@^3.8.0":
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/@vue/cli-shared-utils/-/cli-shared-utils-3.10.0.tgz#9d156f3c0ef675a939319062489e98c8d3d80f7e"
+  integrity sha512-i96XBUtLdWeKFCC/ot12ngqnVikN/dXpelGdyxvNZczCkX7Je0FUdrZkiw0+uTYTu1RmuYWpLs+vb/YQerjiWg==
   dependencies:
     "@hapi/joi" "^15.0.1"
     chalk "^2.4.1"
